@@ -1,5 +1,5 @@
-#ifndef _WIN32ERRORS_H_
-#define _WIN32ERRORS_H_
+#ifndef WIN32ERRORS_H
+#define WIN32ERRORS_H
 
 #include <wchar.h>
 

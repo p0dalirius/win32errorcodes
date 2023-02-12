@@ -81,15 +81,19 @@ if __name__ == '__main__':
         codes += process(link)
 
     fh = open("../c/win32errors.h", "w")
-    fpy = open("../python/win32errors.py", "w")
     fh.write("#ifndef _WIN32ERRORS_H_\n")
     fh.write("#define _WIN32ERRORS_H_\n\n#include <wchar.h>\n\n")
     fh.write("const char* lookup_errorA(unsigned long errcode);\n")
-    fh.write("const wchar_t* lookup_errorW(unsigned long errcode);\n\n\n")
+    fh.write("const wchar_t* lookup_errorW(unsigned long errcode);\n")
+    fh.write("\n#endif\n")
+    fh.close()
 
-    fh.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = \"The operation completed successfully.\";\n")
-    fh.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L\"The operation completed successfully.\";\n\n\n")
+    fc = open("../c/win32errors.c", "w")
+    fc.write("#include \"win32errors.h\"\n\n")
+    fc.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = \"The operation completed successfully.\";\n")
+    fc.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L\"The operation completed successfully.\";\n\n\n")
 
+    fpy = open("../python/win32errors.py", "w")
     for c in codes:
         failed = False
         try:
@@ -118,10 +122,10 @@ if __name__ == '__main__':
         if failed:
             const, value, text = c["code"]
             print(c)
-            fh.write("// Source: %s\n" % c["source"])
-            fh.write("// unsigned long WIN32ERR_%s = %s;\n" % (const, value))
-            fh.write("// const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
-            fh.write("// const wchar_t* WIN32ERR_%s_wstr = \"%s\";\n\n" % (const, text))
+            fc.write("// Source: %s\n" % c["source"])
+            fc.write("// unsigned long WIN32ERR_%s = %s;\n" % (const, value))
+            fc.write("// const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
+            fc.write("// const wchar_t* WIN32ERR_%s_wstr = \"%s\";\n\n" % (const, text))
 
             fpy.write("# Source: %s\n" % c["source"])
             fpy.write("# WIN32ERR_%s = %s\n" % (const, value))
@@ -129,24 +133,19 @@ if __name__ == '__main__':
             fpy.write("# WIN32ERR_%s_str = \"%s\"\n\n" % (const, text))
         else:
             already_defined.append(const)
-            fh.write("// Source: %s\n" % c["source"])
-            fh.write("unsigned long WIN32ERR_%s = 0x%08x;\n" % (const, value))
-            fh.write("const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
-            fh.write("const wchar_t* WIN32ERR_%s_wstr = L\"%s\";\n\n" % (const, text))
+            fc.write("// Source: %s\n" % c["source"])
+            fc.write("unsigned long WIN32ERR_%s = 0x%08x;\n" % (const, value))
+            fc.write("const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
+            fc.write("const wchar_t* WIN32ERR_%s_wstr = L\"%s\";\n\n" % (const, text))
 
             fpy.write("# Source: %s\n" % c["source"])
             fpy.write("WIN32ERR_%s = %s\n" % (const, value))
             #fpy.write("WIN32ERR_%s_name = \"%s\"\n" % (const, const))
             fpy.write("WIN32ERR_%s_str = \"%s\"\n\n" % (const, text))
-    fh.write("\n#endif\n")
-    fh.close()
 
     fpy.write("\n\n")
-
     fpy.write("def win32_lookup_error(errcode, show_const=False):\n")
 
-    fc = open("../c/win32errors.c", "w")
-    fc.write("#include \"win32errors.h\"\n\n")
     fc.write("const char* lookup_errorA(unsigned long errcode){\n")
     fc.write("\tif (errcode == WIN32ERR_%s) { return WIN32ERR_%s_str; }\n" % (already_defined[0], already_defined[0]))
     fpy.write("    if (errcode == WIN32ERR_%s):\n" % already_defined[0])

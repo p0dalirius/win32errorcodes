@@ -11,9 +11,17 @@
 
 ## Usage:
 
+### In C / C++
+
 ```c
 const char* lookup_errorA(unsigned long errcode);
 const wchar_t* lookup_errorW(unsigned long errcode);
+```
+
+## In Python
+
+```python
+def win32_lookup_error(errcode:int) -> str;
 ```
 
 ## Contributing

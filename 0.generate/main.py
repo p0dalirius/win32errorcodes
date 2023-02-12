@@ -90,8 +90,10 @@ if __name__ == '__main__':
 
     fc = open("../c/win32errors.c", "w")
     fc.write("#include \"win32errors.h\"\n\n")
-    fc.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = \"The operation completed successfully.\";\n")
-    fc.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L\"The operation completed successfully.\";\n\n\n")
+    fc.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = \"Unknown error code.\";\n")
+    fc.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str_name = \"UNK_ERR_CODE: Unknown error code.\";\n")
+    fc.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L\"Unknown error code.\";\n")
+    fc.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name = L\"UNK_ERR_CODE: Unknown error code.\";\n\n\n")
 
     fpy = open("../python/win32errors.py", "w")
     for c in codes:
@@ -125,7 +127,9 @@ if __name__ == '__main__':
             fc.write("// Source: %s\n" % c["source"])
             fc.write("// unsigned long WIN32ERR_%s = %s;\n" % (const, value))
             fc.write("// const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
-            fc.write("// const wchar_t* WIN32ERR_%s_wstr = \"%s\";\n\n" % (const, text))
+            fc.write("// const char* WIN32ERR_%s_str_name = \"%s: %s\";\n" % (const, const, text))
+            fc.write("// const wchar_t* WIN32ERR_%s_wstr = L\"%s\";\n" % (const, text))
+            fc.write("// const wchar_t* WIN32ERR_%s_wstr_name = L\"%s: %s\";\n\n" % (const, const, text))
 
             fpy.write("# Source: %s\n" % c["source"])
             fpy.write("# WIN32ERR_%s = %s\n" % (const, value))
@@ -136,7 +140,9 @@ if __name__ == '__main__':
             fc.write("// Source: %s\n" % c["source"])
             fc.write("unsigned long WIN32ERR_%s = 0x%08x;\n" % (const, value))
             fc.write("const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
-            fc.write("const wchar_t* WIN32ERR_%s_wstr = L\"%s\";\n\n" % (const, text))
+            fc.write("const char* WIN32ERR_%s_str_name = \"%s: %s\";\n" % (const, const, text))
+            fc.write("const wchar_t* WIN32ERR_%s_wstr = L\"%s\";\n" % (const, text))
+            fc.write("const wchar_t* WIN32ERR_%s_wstr_name = L\"%s: %s\";\n\n" % (const, const, text))
 
             fpy.write("# Source: %s\n" % c["source"])
             fpy.write("WIN32ERR_%s = %s\n" % (const, value))
@@ -168,6 +174,23 @@ if __name__ == '__main__':
     fc.write("\n\treturn WIN32ERR_UNKNOWN_ERROR_CODE_wstr;\n")
     fc.write("}\n\n")
     fpy.write("    return WIN32ERR_UNKNOWN_ERROR_CODE_wstr\n")
+
+    # Lookup with name A
+    fc.write("const char* lookup_error_with_nameA(unsigned long errcode){\n")
+    fc.write("\tif (errcode == WIN32ERR_%s) { return WIN32ERR_%s_str_name; }\n" % (already_defined[0], already_defined[0]))
+    for const in already_defined[1:]:
+        fc.write("\tif (errcode == WIN32ERR_%s) { return WIN32ERR_%s_str_name; }\n" % (const, const))
+    fc.write("\n\treturn WIN32ERR_UNKNOWN_ERROR_CODE_str_name;\n")
+    fc.write("}\n\n")
+
+    # Lookup with name W
+    fc.write("const wchar_t* lookup_error_with_nameW(unsigned long errcode){\n")
+    fc.write("\tif (errcode == WIN32ERR_%s) { return WIN32ERR_%s_wstr_name; }\n" % (already_defined[0], already_defined[0]))
+    for const in already_defined[1:]:
+        fc.write("\tif (errcode == WIN32ERR_%s) { return WIN32ERR_%s_wstr_name; }\n" % (const, const))
+    fc.write("\n\treturn WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name;\n")
+    fc.write("}\n\n")
+
     fc.close()
 
     fpy.close()

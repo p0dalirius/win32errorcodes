@@ -83,10 +83,12 @@ if __name__ == '__main__':
     fh = open("../c/win32errors.h", "w")
     fh.write("#ifndef _WIN32ERRORS_H_\n")
     fh.write("#define _WIN32ERRORS_H_\n\n#include <wchar.h>\n\n")
+    fh.write('#ifdef __cplusplus\nextern "C" {\n#endif \"\n\n')
     fh.write("const char* lookup_errorA(unsigned long errcode);\n")
     fh.write("const wchar_t* lookup_errorW(unsigned long errcode);\n")
     fh.write("const char* lookup_error_with_nameA(unsigned long errcode);\n")
     fh.write("const wchar_t* lookup_error_with_nameW(unsigned long errcode);\n")
+    fh.write('\n#ifdef __cplusplus\n}\n#endif \"\n\n')
     fh.write("\n#endif\n")
     fh.close()
 

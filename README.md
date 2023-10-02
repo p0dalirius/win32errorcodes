@@ -1,4 +1,4 @@
-# win32errorcodes
+![](./.github/banner.png)
 
 <p align="center">
     A small C/C++ library to lookup Windows error codes.

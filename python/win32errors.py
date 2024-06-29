@@ -4792,11 +4792,11 @@ WIN32ERR_PEERDIST_ERROR_ALREADY_EXISTS_str = "An element already exists and was 
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--4000-5999-
 WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND = 4059
-WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_str = "Can not cancel the requested operation as it has already been completed."
+WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_str = "Cannot cancel the requested operation as it has already been completed."
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--4000-5999-
 WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED = 4060
-WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_str = "Can not perform the reqested operation because it has already been carried out."
+WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_str = "Can not perform the requested operation because it has already been carried out."
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--4000-5999-
 WIN32ERR_PEERDIST_ERROR_OUT_OF_BOUNDS = 4061
@@ -10396,7 +10396,7 @@ WIN32ERR_ERROR_EVT_FILTER_INVARG_str = "Left hand side arguments to binary opera
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 WIN32ERR_ERROR_EVT_FILTER_INVTEST = 15017
-WIN32ERR_ERROR_EVT_FILTER_INVTEST_str = "A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceeding node set can be evaluated."
+WIN32ERR_ERROR_EVT_FILTER_INVTEST_str = "A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceding node set can be evaluated."
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 WIN32ERR_ERROR_EVT_FILTER_INVTYPE = 15018
@@ -10488,7 +10488,7 @@ WIN32ERR_ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE_str = "The subscription fails to 
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 WIN32ERR_ERROR_EC_LOG_DISABLED = 15081
-WIN32ERR_ERROR_EC_LOG_DISABLED_str = "The log of the subscription is in disabled state, and can not be used to forward events to. The log must first be enabled before the subscription can be activated."
+WIN32ERR_ERROR_EC_LOG_DISABLED_str = "The log of the subscription is in disabled state, and cannot be used to forward events to. The log must first be enabled before the subscription can be activated."
 
 # Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 WIN32ERR_ERROR_EC_CIRCULAR_FORWARDING = 15082

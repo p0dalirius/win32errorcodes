@@ -1,9 +1,9 @@
 #include "win32errors.h"
 
-const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = "Unknown error code.";
-const char* WIN32ERR_UNKNOWN_ERROR_CODE_str_name = "UNK_ERR_CODE: Unknown error code.";
-const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L"Unknown error code.";
-const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name = L"UNK_ERR_CODE: Unknown error code.";
+WIN32ERR_UNKNOWN_ERROR_CODE_str = "Unknown error code.";
+WIN32ERR_UNKNOWN_ERROR_CODE_str_name = "UNK_ERR_CODE: Unknown error code.";
+WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L"Unknown error code.";
+WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name = L"UNK_ERR_CODE: Unknown error code.";
 
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-
@@ -8394,17 +8394,17 @@ const wchar_t* WIN32ERR_PEERDIST_ERROR_ALREADY_EXISTS_wstr_name = L"PEERDIST_ERR
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--4000-5999-
 unsigned long WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND = 0x00000fdb;
-const char* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_str = "Can not cancel the requested operation as it has already been completed.";
-const char* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_str_name = "PEERDIST_ERROR_OPERATION_NOTFOUND: Can not cancel the requested operation as it has already been completed.";
-const wchar_t* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_wstr = L"Can not cancel the requested operation as it has already been completed.";
-const wchar_t* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_wstr_name = L"PEERDIST_ERROR_OPERATION_NOTFOUND: Can not cancel the requested operation as it has already been completed.";
+const char* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_str = "Cannot cancel the requested operation as it has already been completed.";
+const char* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_str_name = "PEERDIST_ERROR_OPERATION_NOTFOUND: Cannot cancel the requested operation as it has already been completed.";
+const wchar_t* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_wstr = L"Cannot cancel the requested operation as it has already been completed.";
+const wchar_t* WIN32ERR_PEERDIST_ERROR_OPERATION_NOTFOUND_wstr_name = L"PEERDIST_ERROR_OPERATION_NOTFOUND: Cannot cancel the requested operation as it has already been completed.";
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--4000-5999-
 unsigned long WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED = 0x00000fdc;
-const char* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_str = "Can not perform the reqested operation because it has already been carried out.";
-const char* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_str_name = "PEERDIST_ERROR_ALREADY_COMPLETED: Can not perform the reqested operation because it has already been carried out.";
-const wchar_t* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_wstr = L"Can not perform the reqested operation because it has already been carried out.";
-const wchar_t* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_wstr_name = L"PEERDIST_ERROR_ALREADY_COMPLETED: Can not perform the reqested operation because it has already been carried out.";
+const char* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_str = "Can not perform the requested operation because it has already been carried out.";
+const char* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_str_name = "PEERDIST_ERROR_ALREADY_COMPLETED: Can not perform the requested operation because it has already been carried out.";
+const wchar_t* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_wstr = L"Can not perform the requested operation because it has already been carried out.";
+const wchar_t* WIN32ERR_PEERDIST_ERROR_ALREADY_COMPLETED_wstr_name = L"PEERDIST_ERROR_ALREADY_COMPLETED: Can not perform the requested operation because it has already been carried out.";
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--4000-5999-
 unsigned long WIN32ERR_PEERDIST_ERROR_OUT_OF_BOUNDS = 0x00000fdd;
@@ -18201,10 +18201,10 @@ const wchar_t* WIN32ERR_ERROR_EVT_FILTER_INVARG_wstr_name = L"ERROR_EVT_FILTER_I
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 unsigned long WIN32ERR_ERROR_EVT_FILTER_INVTEST = 0x00003aa9;
-const char* WIN32ERR_ERROR_EVT_FILTER_INVTEST_str = "A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceeding node set can be evaluated.";
-const char* WIN32ERR_ERROR_EVT_FILTER_INVTEST_str_name = "ERROR_EVT_FILTER_INVTEST: A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceeding node set can be evaluated.";
-const wchar_t* WIN32ERR_ERROR_EVT_FILTER_INVTEST_wstr = L"A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceeding node set can be evaluated.";
-const wchar_t* WIN32ERR_ERROR_EVT_FILTER_INVTEST_wstr_name = L"ERROR_EVT_FILTER_INVTEST: A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceeding node set can be evaluated.";
+const char* WIN32ERR_ERROR_EVT_FILTER_INVTEST_str = "A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceding node set can be evaluated.";
+const char* WIN32ERR_ERROR_EVT_FILTER_INVTEST_str_name = "ERROR_EVT_FILTER_INVTEST: A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceding node set can be evaluated.";
+const wchar_t* WIN32ERR_ERROR_EVT_FILTER_INVTEST_wstr = L"A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceding node set can be evaluated.";
+const wchar_t* WIN32ERR_ERROR_EVT_FILTER_INVTEST_wstr_name = L"ERROR_EVT_FILTER_INVTEST: A step operation must involve either a node test or, in the case of a predicate, an algebraic expression against which to test each node in the node set identified by the preceding node set can be evaluated.";
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 unsigned long WIN32ERR_ERROR_EVT_FILTER_INVTYPE = 0x00003aaa;
@@ -18362,10 +18362,10 @@ const wchar_t* WIN32ERR_ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE_wstr_name = L"ERRO
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 unsigned long WIN32ERR_ERROR_EC_LOG_DISABLED = 0x00003ae9;
-const char* WIN32ERR_ERROR_EC_LOG_DISABLED_str = "The log of the subscription is in disabled state, and can not be used to forward events to. The log must first be enabled before the subscription can be activated.";
-const char* WIN32ERR_ERROR_EC_LOG_DISABLED_str_name = "ERROR_EC_LOG_DISABLED: The log of the subscription is in disabled state, and can not be used to forward events to. The log must first be enabled before the subscription can be activated.";
-const wchar_t* WIN32ERR_ERROR_EC_LOG_DISABLED_wstr = L"The log of the subscription is in disabled state, and can not be used to forward events to. The log must first be enabled before the subscription can be activated.";
-const wchar_t* WIN32ERR_ERROR_EC_LOG_DISABLED_wstr_name = L"ERROR_EC_LOG_DISABLED: The log of the subscription is in disabled state, and can not be used to forward events to. The log must first be enabled before the subscription can be activated.";
+const char* WIN32ERR_ERROR_EC_LOG_DISABLED_str = "The log of the subscription is in disabled state, and cannot be used to forward events to. The log must first be enabled before the subscription can be activated.";
+const char* WIN32ERR_ERROR_EC_LOG_DISABLED_str_name = "ERROR_EC_LOG_DISABLED: The log of the subscription is in disabled state, and cannot be used to forward events to. The log must first be enabled before the subscription can be activated.";
+const wchar_t* WIN32ERR_ERROR_EC_LOG_DISABLED_wstr = L"The log of the subscription is in disabled state, and cannot be used to forward events to. The log must first be enabled before the subscription can be activated.";
+const wchar_t* WIN32ERR_ERROR_EC_LOG_DISABLED_wstr_name = L"ERROR_EC_LOG_DISABLED: The log of the subscription is in disabled state, and cannot be used to forward events to. The log must first be enabled before the subscription can be activated.";
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--12000-15999-
 unsigned long WIN32ERR_ERROR_EC_CIRCULAR_FORWARDING = 0x00003aea;

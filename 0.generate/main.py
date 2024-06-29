@@ -80,26 +80,30 @@ if __name__ == '__main__':
     for link in sources:
         codes += process(link)
 
+    # Open files
     fh = open("../c/win32errors.h", "w")
+    fc = open("../c/win32errors.c", "w")
+    fpy = open("../python/win32errors.py", "w")
+
     fh.write("#ifndef _WIN32ERRORS_H_\n")
     fh.write("#define _WIN32ERRORS_H_\n\n#include <wchar.h>\n\n")
-    fh.write('#ifdef __cplusplus\nextern "C" {\n#endif \"\n\n')
+    fh.write('#ifdef __cplusplus\nextern "C" {\n#endif\n\n')
     fh.write("const char* lookup_errorA(unsigned long errcode);\n")
     fh.write("const wchar_t* lookup_errorW(unsigned long errcode);\n")
     fh.write("const char* lookup_error_with_nameA(unsigned long errcode);\n")
-    fh.write("const wchar_t* lookup_error_with_nameW(unsigned long errcode);\n")
-    fh.write('\n#ifdef __cplusplus\n}\n#endif \"\n\n')
-    fh.write("\n#endif\n")
-    fh.close()
+    fh.write("const wchar_t* lookup_error_with_nameW(unsigned long errcode);")
+    fh.write("\n\n\n")
+    fh.write("extern const char* WIN32ERR_UNKNOWN_ERROR_CODE_str;\n")
+    fh.write("extern const char* WIN32ERR_UNKNOWN_ERROR_CODE_str_name;\n")
+    fh.write("extern const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr;\n")
+    fh.write("extern const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name;\n\n\n")
 
-    fc = open("../c/win32errors.c", "w")
     fc.write("#include \"win32errors.h\"\n\n")
     fc.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = \"Unknown error code.\";\n")
     fc.write("const char* WIN32ERR_UNKNOWN_ERROR_CODE_str_name = \"UNK_ERR_CODE: Unknown error code.\";\n")
     fc.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L\"Unknown error code.\";\n")
     fc.write("const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name = L\"UNK_ERR_CODE: Unknown error code.\";\n\n\n")
-
-    fpy = open("../python/win32errors.py", "w")
+    
     for c in codes:
         failed = False
         try:
@@ -128,6 +132,13 @@ if __name__ == '__main__':
         if failed:
             const, value, text = c["code"]
             print(c)
+            fh.write("// Source: %s\n" % c["source"])
+            fh.write("// unsigned long WIN32ERR_%s;\n" % (const))
+            fh.write("// extern const char* WIN32ERR_%s_str;\n" % (const))
+            fh.write("// extern const char* WIN32ERR_%s_str_name;\n" % (const))
+            fh.write("// extern const wchar_t* WIN32ERR_%s_wstr;\n" % (const))
+            fh.write("// extern const wchar_t* WIN32ERR_%s_wstr_name;\n\n" % (const))
+
             fc.write("// Source: %s\n" % c["source"])
             fc.write("// unsigned long WIN32ERR_%s = %s;\n" % (const, value))
             fc.write("// const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
@@ -141,6 +152,13 @@ if __name__ == '__main__':
             fpy.write("# WIN32ERR_%s_str = \"%s\"\n\n" % (const, text))
         else:
             already_defined.append(const)
+            fh.write("// Source: %s\n" % c["source"])
+            fh.write("extern unsigned long WIN32ERR_%s;\n" % (const))
+            fh.write("extern const char* WIN32ERR_%s_str;\n" % (const))
+            fh.write("extern const char* WIN32ERR_%s_str_name;\n" % (const))
+            fh.write("extern const wchar_t* WIN32ERR_%s_wstr;\n" % (const))
+            fh.write("extern const wchar_t* WIN32ERR_%s_wstr_name;\n\n" % (const))
+
             fc.write("// Source: %s\n" % c["source"])
             fc.write("unsigned long WIN32ERR_%s = 0x%08x;\n" % (const, value))
             fc.write("const char* WIN32ERR_%s_str = \"%s\";\n" % (const, text))
@@ -152,6 +170,10 @@ if __name__ == '__main__':
             fpy.write("WIN32ERR_%s = %s\n" % (const, value))
             #fpy.write("WIN32ERR_%s_name = \"%s\"\n" % (const, const))
             fpy.write("WIN32ERR_%s_str = \"%s\"\n\n" % (const, text))
+
+    fh.write('\n#ifdef __cplusplus\n}\n#endif\n\n')
+    fh.write("\n#endif\n")
+    fh.close()
 
     fpy.write("\n\n")
     fpy.write("def win32_lookup_error(errcode, show_const=False):\n")
@@ -196,5 +218,4 @@ if __name__ == '__main__':
     fc.write("}\n\n")
 
     fc.close()
-
     fpy.close()

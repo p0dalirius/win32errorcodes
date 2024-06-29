@@ -1,9 +1,9 @@
 #include "win32errors.h"
 
-WIN32ERR_UNKNOWN_ERROR_CODE_str = "Unknown error code.";
-WIN32ERR_UNKNOWN_ERROR_CODE_str_name = "UNK_ERR_CODE: Unknown error code.";
-WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L"Unknown error code.";
-WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name = L"UNK_ERR_CODE: Unknown error code.";
+const char* WIN32ERR_UNKNOWN_ERROR_CODE_str = "Unknown error code.";
+const char* WIN32ERR_UNKNOWN_ERROR_CODE_str_name = "UNK_ERR_CODE: Unknown error code.";
+const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr = L"Unknown error code.";
+const wchar_t* WIN32ERR_UNKNOWN_ERROR_CODE_wstr_name = L"UNK_ERR_CODE: Unknown error code.";
 
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-

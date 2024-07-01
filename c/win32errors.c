@@ -5041,10 +5041,10 @@ const wchar_t* WIN32ERR_ERROR_BEYOND_VDL_wstr_name = L"ERROR_BEYOND_VDL: The ope
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--1000-1299-
 unsigned long WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE = 0x0000050a;
-const char* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_str = "The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
-const char* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_str_name = "ERROR_INCOMPATIBLE_SERVICE_SID_TYPE: The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
-const wchar_t* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_wstr = L"The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
-const wchar_t* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_wstr_name = L"ERROR_INCOMPATIBLE_SERVICE_SID_TYPE: The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
+const char* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_str = "The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
+const char* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_str_name = "ERROR_INCOMPATIBLE_SERVICE_SID_TYPE: The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
+const wchar_t* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_wstr = L"The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
+const wchar_t* WIN32ERR_ERROR_INCOMPATIBLE_SERVICE_SID_TYPE_wstr_name = L"ERROR_INCOMPATIBLE_SERVICE_SID_TYPE: The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service. On Windows Server 2003 and Windows XP, an unrestricted service cannot coexist in the same process with other services. The service with the unrestricted service SID type must be moved to an owned process in order to start this service.";
 
 // Source: https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--1000-1299-
 unsigned long WIN32ERR_ERROR_DRIVER_PROCESS_TERMINATED = 0x0000050b;
@@ -20187,7 +20187,7 @@ const wchar_t* WIN32ERR_ERROR_WINHTTP_UNRECOGNIZED_SCHEME_wstr_name = L"ERROR_WI
 // const wchar_t* WIN32ERR_ERROR_NO_MORE_ITEMS_wstr = L"Header: Declared in Winerror.h";
 // const wchar_t* WIN32ERR_ERROR_NO_MORE_ITEMS_wstr_name = L"ERROR_NO_MORE_ITEMS: Header: Declared in Winerror.h";
 
-const char* lookup_errorA(unsigned long errcode){
+const char* lookup_errorA(unsigned long errcode) {
 	if (errcode == WIN32ERR_ERROR_SUCCESS) { return WIN32ERR_ERROR_SUCCESS_str; }
 	if (errcode == WIN32ERR_ERROR_INVALID_FUNCTION) { return WIN32ERR_ERROR_INVALID_FUNCTION_str; }
 	if (errcode == WIN32ERR_ERROR_FILE_NOT_FOUND) { return WIN32ERR_ERROR_FILE_NOT_FOUND_str; }
@@ -23064,7 +23064,7 @@ const char* lookup_errorA(unsigned long errcode){
 	return WIN32ERR_UNKNOWN_ERROR_CODE_str;
 }
 
-const wchar_t* lookup_errorW(unsigned long errcode){
+const wchar_t* lookup_errorW(unsigned long errcode) {
 	if (errcode == WIN32ERR_ERROR_SUCCESS) { return WIN32ERR_ERROR_SUCCESS_wstr; }
 	if (errcode == WIN32ERR_ERROR_INVALID_FUNCTION) { return WIN32ERR_ERROR_INVALID_FUNCTION_wstr; }
 	if (errcode == WIN32ERR_ERROR_FILE_NOT_FOUND) { return WIN32ERR_ERROR_FILE_NOT_FOUND_wstr; }
@@ -25941,7 +25941,7 @@ const wchar_t* lookup_errorW(unsigned long errcode){
 	return WIN32ERR_UNKNOWN_ERROR_CODE_wstr;
 }
 
-const char* lookup_error_with_nameA(unsigned long errcode){
+const char* lookup_error_with_nameA(unsigned long errcode) {
 	if (errcode == WIN32ERR_ERROR_SUCCESS) { return WIN32ERR_ERROR_SUCCESS_str_name; }
 	if (errcode == WIN32ERR_ERROR_INVALID_FUNCTION) { return WIN32ERR_ERROR_INVALID_FUNCTION_str_name; }
 	if (errcode == WIN32ERR_ERROR_FILE_NOT_FOUND) { return WIN32ERR_ERROR_FILE_NOT_FOUND_str_name; }
@@ -28818,7 +28818,7 @@ const char* lookup_error_with_nameA(unsigned long errcode){
 	return WIN32ERR_UNKNOWN_ERROR_CODE_str_name;
 }
 
-const wchar_t* lookup_error_with_nameW(unsigned long errcode){
+const wchar_t* lookup_error_with_nameW(unsigned long errcode) {
 	if (errcode == WIN32ERR_ERROR_SUCCESS) { return WIN32ERR_ERROR_SUCCESS_wstr_name; }
 	if (errcode == WIN32ERR_ERROR_INVALID_FUNCTION) { return WIN32ERR_ERROR_INVALID_FUNCTION_wstr_name; }
 	if (errcode == WIN32ERR_ERROR_FILE_NOT_FOUND) { return WIN32ERR_ERROR_FILE_NOT_FOUND_wstr_name; }
